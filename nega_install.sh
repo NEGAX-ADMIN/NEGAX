@@ -38,17 +38,6 @@ echo "==============================================="
 echo "Step 7: Checking for existing directories..."
 echo "==============================================="
 
-if [ -d "template_folder" ] then
-  echo "Both template_folder and sender_output directories exist."
-  echo "Only extracting nega from the ZIP file..."
-  sudo unzip -j NEGAX_SUPREME_LINUX_1.5.13.zip "nega" -d .
-
-else
-  echo "One or both of the required directories are missing."
-  echo "Performing a full extraction..."
-  sudo unzip NEGAX_SUPREME_LINUX_1.5.13.zip
-fi
-
 # Make the nega script executable
 chmod +x ./nega
 
