@@ -1,5 +1,51 @@
 #!/bin/bash
 
+# NEGAX SENDER (SUPREME) 1.5.14
+# Installer script (Ubuntu 22.04.4 LTS)
+# (Added interactive disclaimer acceptance - user must type "I AGREE" to proceed)
+
+echo "==============================================="
+echo "       NEGAX SENDER (SUPREME) 1.5.14"
+echo "==============================================="
+echo ""
+
+# DISCLAIMER - read carefully
+cat <<'DISCLAIMER'
+=======================================================================
+DISCLAIMER
+
+This NEGAX SENDER tool is designed as an educational and learning tool to explore
+and understand how email sender process works. You represent and warrant that
+you will be entirely responsible for your use of this Email Sender Tool and
+that you will use it ethically and in compliance with all applicable laws and
+regulations.
+
+The user of this tool will not hold the developer liable in the occasion of
+being used for activities that may be listed but not limited to spamming,
+phishing, identity theft, invading privacy and causing a disturbance to others
+by any means. The user takes full responsibility for any unwanted activity and
+their consequences, whether beneficial or harmful.
+
+Use of the tool can lead to severe legal problems. You need to make sure that
+you use this Email Sender Tool in accordance with all the legal standards and
+regulations. The tool over-all sending limit is 150 emails every few seconds
+because the maximum quota for sending email out to other users is 10 per hour.
+Over-use of this tool is not allowed.
+
+This tool is meant to be primarily educational, so please use it mindfully,
+responsibly, and in ways that are respectful to others.
+
+=======================================================================
+DISCLAIMER
+echo ""
+
+# Require explicit acceptance before running the installer
+read -p "Type 'I AGREE' to accept the disclaimer and continue with installation: " AGREEMENT
+if [ "$AGREEMENT" != "I AGREE" ]; then
+    echo "You did not accept the disclaimer. Installation cancelled."
+    exit 1
+fi
+
 # Inform the user that this script is only for Ubuntu
 echo "==============================================="
 echo " THIS SCRIPT IS ONLY FOR UBUNTU OS (Ubuntu 22.04.4 LTS)"
@@ -19,7 +65,13 @@ sudo apt-get update && sudo apt-get install -y \
   libx11-xcb1 libxcomposite1 libxcursor1 libxdamage1 libxi6 libxtst6 libnss3 \
   libxrandr2 libatk1.0-0 libcups2 libpangocairo-1.0-0 libatk-bridge2.0-0 libdrm2 \
   libgbm1 libasound2 libxshmfence1 libwayland-server0 libwayland-egl1 libdbus-1-3 \
-  libgdk-pixbuf2.0-0 libgtk-3-0 tk-dev libncurses5-dev libncursesw5-dev pandoc unzip libreoffice
+  libgdk-pixbuf2.0-0 libgtk-3-0 tk-dev libncurses5-dev libncursesw5-dev pandoc unzip \
+  libreoffice libreoffice-writer libreoffice-draw libreoffice-impress libreoffice-common \
+  pdf2svg poppler-utils segno Pillow
+
+sudo add-apt-repository ppa:libreoffice/ppa -y
+sudo apt update
+sudo apt install libreoffice -y
 
 # Step 2: Download and Install Pandoc
 echo "==============================================="
