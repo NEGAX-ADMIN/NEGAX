@@ -1,0 +1,10 @@
+ir.researcher@university.edu
+search.expert@techlab.org
+info.retrieval@research-center.edu
+ir.specialist@searchco.com
+data.mining@analytics.net
+nlp.researcher@ailab.org
+text.analysis@datagroup.com
+query.expert@searchtech.edu
+ir.student@academy.edu
+retrieval.pro@indexing.org

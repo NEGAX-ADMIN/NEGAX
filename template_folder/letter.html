@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Sample Letter</title>
+    <style>
+        :root {
+            --paper-width: 800px;
+            --paper-padding: 48px;
+            --font-family: "Georgia", "Times New Roman", serif;
+            --accent: #0b62a4;
+            --text-color: #222;
+        }
+
+        body {
+            background: #f1f1f1;
+            font-family: Arial, sans-serif;
+            color: var(--text-color);
+            margin: 24px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+        }
+
+        .letter {
+            width: calc(var(--paper-width));
+            background: white;
+            padding: var(--paper-padding);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+            margin-bottom: 48px;
+            line-height: 1.5;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 24px;
+        }
+
+        .sender {
+            text-align: left;
+            font-size: 14px;
+            color: #444;
+        }
+
+        .sender .name {
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 6px;
+        }
+
+        .date {
+            text-align: right;
+            font-size: 14px;
+            color: #444;
+            min-width: 180px;
+        }
+
+        .recipient {
+            margin: 12px 0 24px 0;
+            font-size: 15px;
+        }
+
+        .subject {
+            margin: 12px 0;
+            font-weight: 700;
+            color: var(--accent);
+            font-size: 16px;
+        }
+
+        main {
+            font-family: var(--font-family);
+            font-size: 17px;
+            color: #111;
+        }
+
+        p {
+            margin: 0 0 14px 0;
+        }
+
+        .closing {
+            margin-top: 24px;
+        }
+
+        .signature {
+            margin-top: 32px;
+            font-weight: 700;
+            color: var(--accent);
+            font-size: 15px;
+        }
+
+        footer {
+            margin-top: 36px;
+            border-top: 1px solid #eee;
+            padding-top: 12px;
+            font-size: 13px;
+            color: #666;
+        }
+
+        @media print {
+            body {
+                background: white;
+                margin: 0;
+            }
+            .letter {
+                box-shadow: none;
+                width: 100%;
+                max-width: none;
+                margin: 0;
+                padding: 36px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <article class="letter" contenteditable="false">
+        <header>
+            <div class="sender" aria-label="Sender address">
+                <div class="name">Alex Hart</div>
+                42 Willow Lane<br />
+                Riverton, CA 94000<br />
+                United States<br />
+                Phone: (555) 123-4567<br />
+                Email: alex.hart@example.com
+            </div>
+
+            <div class="date" aria-label="Date">
+                October 28, 2025
+            </div>
+        </header>
+        
+        <div class="recipient" aria-label="Recipient address">
+            Morgan & Co.<br />
+            Attn: Hiring Manager<br />
+            170 Market Street<br />
+            San Francisco, CA 94103
+        </div>
+
+        <div class="subject">Subject: Application for Front-End Developer Position</div>
+
+        <main>
+            <p>Dear Hiring Manager,</p>
+                {{email}}
+            <p>
+                I am writing to express my interest in the Front-End Developer position at Morgan & Co.
+                With five years of experience building accessible, performant web interfaces and a strong
+                background in modern HTML, CSS, and JavaScript frameworks, I am confident I can contribute
+                to your team's goals.
+            </p>
+
+            <p>
+                In my current role I lead UI development for a cross-functional team, focusing on
+                component-driven design, responsive layouts, and automated testing. I have successfully
+                reduced page load times by 30% and improved accessibility scores across major pages.
+                I enjoy collaborating closely with designers and backend engineers to transform ideas
+                into polished user experiences.
+            </p>
+
+            <p>
+                I would welcome the opportunity to discuss how my skills and background align with your
+                needs. Thank you for considering my application. I am available for an interview at
+                your convenience and can provide references upon request.
+            </p>
+
+            <div class="closing">
+                Sincerely,
+                <div class="signature">Alex Hart</div>
+            </div>
+        </main>
+
+        <footer>
+            This letter was generated as a sample HTML template. Replace the content above with your
+            own details before sending or printing.
+        </footer>
+    </article>
+</body>
+</html>
