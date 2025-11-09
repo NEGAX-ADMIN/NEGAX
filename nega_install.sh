@@ -10,7 +10,7 @@ echo "==============================================="
 echo ""
 
 # DISCLAIMER - read carefully
-cat <<'DISCLAIMER'
+cat <<'EOF'
 =======================================================================
 DISCLAIMER
 
@@ -36,7 +36,7 @@ This tool is meant to be primarily educational, so please use it mindfully,
 responsibly, and in ways that are respectful to others.
 
 =======================================================================
-DISCLAIMER
+EOF
 echo ""
 
 # Require explicit acceptance before running the installer
