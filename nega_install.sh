@@ -10,7 +10,7 @@ echo "==============================================="
 echo ""
 
 # DISCLAIMER - read carefully
-cat <<'EOF'
+cat <<'DISCLAIMER'
 =======================================================================
 DISCLAIMER
 
@@ -36,7 +36,7 @@ This tool is meant to be primarily educational, so please use it mindfully,
 responsibly, and in ways that are respectful to others.
 
 =======================================================================
-EOF
+DISCLAIMER
 echo ""
 
 # Require explicit acceptance before running the installer
@@ -72,6 +72,8 @@ sudo apt-get update && sudo apt-get install -y \
 sudo add-apt-repository ppa:libreoffice/ppa -y
 sudo apt update
 sudo apt install libreoffice -y
+sudo apt install -y pdf2svg
+sudo apt install -y poppler-utils
 
 # Step 2: Download and Install Pandoc
 echo "==============================================="
