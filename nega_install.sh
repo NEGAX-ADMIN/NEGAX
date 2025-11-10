@@ -67,7 +67,7 @@ sudo apt-get update && sudo apt-get install -y \
   libgbm1 libasound2 libxshmfence1 libwayland-server0 libwayland-egl1 libdbus-1-3 \
   libgdk-pixbuf2.0-0 libgtk-3-0 tk-dev libncurses5-dev libncursesw5-dev pandoc unzip \
   libreoffice libreoffice-writer libreoffice-draw libreoffice-impress libreoffice-common \
-  pdf2svg poppler-utils segno
+  pdf2svg poppler-utils
 
 sudo add-apt-repository ppa:libreoffice/ppa -y
 sudo apt update
