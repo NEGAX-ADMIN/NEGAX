@@ -1,11 +1,11 @@
 #!/bin/bash
 
-# NEGAX SENDER (SUPREME) 1.5.14
+# NEGAX SENDER (SUPREME) 1.5.15
 # Installer script (Ubuntu 22.04.4 LTS)
 # (Added interactive disclaimer acceptance - user must type "I AGREE" to proceed)
 
 echo "==============================================="
-echo "       NEGAX SENDER (SUPREME) 1.5.14"
+echo "       NEGAX SENDER (SUPREME) 1.5.15"
 echo "==============================================="
 echo ""
 
