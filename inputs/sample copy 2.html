@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HTML to PDF Demo</title>
+  <style>
+    @page {
+      size: A4;
+      margin: 20mm;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: #1f2937;
+      background: #ffffff;
+      line-height: 1.5;
+      font-size: 14px;
+    }
+    .page {
+      width: 100%;
+    }
+    .hero {
+      background: linear-gradient(135deg, #111827 0%, #2563eb 100%);
+      color: white;
+      padding: 28px;
+      border-radius: 18px;
+    }
+    .eyebrow {
+      text-transform: uppercase;
+      letter-spacing: 1.8px;
+      font-size: 11px;
+      opacity: 0.85;
+      margin-bottom: 10px;
+    }
+    h1 {
+      margin: 0 0 10px 0;
+      font-size: 30px;
+      line-height: 1.15;
+    }
+    .hero p {
+      margin: 0;
+      max-width: 90%;
+      font-size: 15px;
+      opacity: 0.96;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      margin-top: 18px;
+    }
+    .card {
+      border: 1px solid #dbe3ef;
+      border-radius: 16px;
+      padding: 18px;
+      background: #f8fafc;
+    }
+    .card h2 {
+      margin: 0 0 8px 0;
+      font-size: 18px;
+      color: #111827;
+    }
+    .muted { color: #4b5563; }
+    .metrics {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 18px;
+    }
+    .metric {
+      background: white;
+      border: 1px solid #dbe3ef;
+      border-radius: 14px;
+      padding: 16px;
+      text-align: center;
+    }
+    .metric .value {
+      font-size: 24px;
+      font-weight: 700;
+      color: #2563eb;
+    }
+    .metric .label {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #6b7280;
+      margin-top: 6px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 18px;
+      overflow: hidden;
+      border-radius: 14px;
+      border: 1px solid #dbe3ef;
+    }
+    thead th {
+      background: #eff6ff;
+      color: #1d4ed8;
+      text-align: left;
+      font-size: 12px;
+      letter-spacing: 0.6px;
+      text-transform: uppercase;
+      padding: 12px 14px;
+      border-bottom: 1px solid #dbe3ef;
+    }
+    tbody td {
+      padding: 12px 14px;
+      border-bottom: 1px solid #e5e7eb;
+      vertical-align: top;
+    }
+    tbody tr:last-child td { border-bottom: none; }
+    .pill {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: #dcfce7;
+      color: #166534;
+      font-size: 12px;
+      font-weight: 700;
+    }
+    .footer {
+      margin-top: 20px;
+      padding-top: 12px;
+      border-top: 1px dashed #cbd5e1;
+      font-size: 12px;
+      color: #6b7280;
+    }
+    ul {
+      margin: 10px 0 0 18px;
+      padding: 0;
+    }
+    li { margin: 6px 0; }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <section class="hero">
+      <div class="eyebrow">Demo export</div>
+      <h1>HTML to PDF Preview File</h1>
+      <p>This sample is just a visual smoke test for your new HTML to PDF flow. It gives you a clean little paper-trail dragon to inspect: layout, colors, tables, cards, and typography.</p>
+    </section>
+
+    <section class="metrics">
+      <div class="metric">
+        <div class="value">A4</div>
+        <div class="label">Page format</div>
+      </div>
+      <div class="metric">
+        <div class="value">3</div>
+        <div class="label">Metric cards</div>
+      </div>
+      <div class="metric">
+        <div class="value">100%</div>
+        <div class="label">Backgrounds printed</div>
+      </div>
+    </section>
+
+    <section class="grid">
+      <div class="card">
+        <h2>What this tests</h2>
+        <p class="muted">Useful for checking whether the converter preserves styled blocks and spacing.</p>
+        <ul>
+          <li>Gradient header rendering</li>
+          <li>Rounded cards and table borders</li>
+          <li>Readable spacing on A4</li>
+          <li>Consistent fonts in the PDF</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h2>Expected outcome</h2>
+        <p class="muted">You should see a polished one-page PDF with a dark blue banner, three stat cards, a two-column section, and a table below.</p>
+        <p><span class="pill">Should look sharp</span></p>
+      </div>
+    </section>
+
+    <table>
+      <thead>
+        <tr>
+          <th style="width: 28%;">Component</th>
+          <th style="width: 48%;">Purpose</th>
+          <th style="width: 24%;">Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Hero block</td>
+          <td>Confirms background printing and top-page spacing are behaving properly.</td>
+          <td><span class="pill">Rendered</span></td>
+        </tr>
+        <tr>
+          <td>Metric cards</td>
+          <td>Checks grid layout, borders, number emphasis, and alignment.</td>
+          <td><span class="pill">Rendered</span></td>
+        </tr>
+        <tr>
+          <td>Detail table</td>
+          <td>Checks row spacing, header styling, and text wrapping within cells.</td>
+          <td><span class="pill">Rendered</span></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="footer">
+      Generated inside the sandbox as a preview artifact for your HTML-to-PDF feature.
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,231 @@
+
+# SMTP builders
+SmtpTransportBuilder(
+    enabled=1,
+    host="smtp.ethereal.email",
+    port=587,
+    username="gilberto17@ethereal.email",
+    password="gZsuUWX1QnD7WtcFnv",
+    security=2,
+    use_private_sender_identity=1,
+    sender_identity=TransportFrommails(
+        single="gilberto17@ethereal.email",
+    ),
+    verbose=0,
+)
+
+# SMTP Proxy builders
+SmtpProxyTransportBuilder(
+    enabled=0,
+    host="smtp.ethereal.email",
+    port=587,
+    username="gilberto17@ethereal.email",
+    password="gZsuUWX1QnD7WtcFnv",
+    security=SMTP_SECURITY.TLS,
+    proxy_config=ProxyConfig(
+                enabled=True,
+                multi_proxy=MultiProxyConfig(
+                    values=["5.255.115.127:43422", "5.255.113.179:52212", "5.255.317.250:54533"],
+                    pick_type=PickMode.CYCLE,
+                    timeout=10,
+                    proxy_type=ProxyType.SOCKS5,
+                ),
+    ),
+    verbose=0,
+)
+
+# Private SMTP builders
+SmtpPrivateTransportBuilder(
+    enabled=0,
+    host="smtp.ethereal.email",
+    port=587,
+    username="gilberto17@ethereal.email",
+    password="gZsuUWX1QnD7WtcFnv",
+    security=2,
+    use_private_sender_identity=1,
+    sender_identity=TransportFrommails(
+        single="admin@nega.com",
+    ),
+    verbose=0,
+)
+
+# Private Proxy SMTP builders
+SmtpPrivateProxyTransportBuilder(
+    enabled=0,
+    host="smtp.ethereal.email",
+    port=587,
+    reuse_connection=0,
+    username="gilberto17@ethereal.email",
+    password="gZsuUWX1QnD7WtcFnv",
+    security=SMTP_SECURITY.TLS,
+    proxy_config=ProxyConfig(
+                enabled=True,
+                multi_proxy=MultiProxyConfig(
+                    values=["5.255.167.127:3232", "5.655.113.177:45353", "5.275.117.250:35543"],
+                    pick_type=PickMode.CYCLE,
+                    timeout=10,
+                    proxy_type=ProxyType.SOCKS5,
+                ),
+    ),
+    verbose=1,
+)
+
+# Private SSH SMTP builders
+SmtpPrivateSshTransportBuilder(
+    enabled=0,
+    host="smtp.ethereal.email",
+    port=SMTP_PORT.PORT_587,
+    username="alexa86@ethereal.email",
+    password="Fe6CqUffWMEWkFtm1D",
+    security=3,
+    use_private_mime_data=1,
+    mime_data=mime_data,
+    use_private_sender_identity=True,
+    sender_identity=TransportFrommails(
+        single="admin.alexa86.{{euser}}@ethereal.email"
+    ),
+    ssh_config=SshConfig(
+        single=SingleSshConfig(
+            host="5.755.422.126",
+            port=22,
+            username="root",
+            password="7592aw238df12bf45fd09256be32264d",
+            use_password=True,
+        )
+    ),
+    verbose=0,
+)
+
+# Direct MX builders
+DirectMxTransportBuilder(
+    enabled=0,
+    security=SMTP_SECURITY.AUTO,
+    port=SMTP_PORT.PORT_25,
+    timeout=30.0,
+    reuse_connection=0,
+    keep_connection_warm=0,
+    verbose=0,
+)
+
+# Direct Host builders
+DirectHostTransportBuilder(
+    enabled=0,
+    host="mail.example.local",
+    port=SMTP_PORT.PORT_25,
+    security=SMTP_SECURITY.TLS,
+    reuse_connection=1,
+    keep_connection_warm=1,
+    verbose=0,
+)
+
+# OWA builders
+OwaTransportBuilder(
+    enabled=0,
+    ews_url=None,
+    server="west.exch082.serverdata.net",
+    email="ancakie@amccvandscape.net",
+    password="AMC021920!",
+    save_copy=False,
+    use_private_sender_name=True,
+    sender_name=TransportFromnames(
+        single="Kelvin Sal Brother {{euser}}"
+    ),
+    use_private_sender_identity=True,
+    sender_identity=TransportFrommails(
+        single="ancakie@amccvandscape.net"
+    ),
+    verbose=0,
+)
+
+# Outlook Session builders
+OutlookSessionTransportBuilder(
+    enabled=0,
+    account_email="blue.kelvin@namexc.ae",
+    reuse_connection=1,
+    keep_connection_warm=0,
+    compose_ready_timeout=60,
+    headless=0,
+    enabled_bcc=0,
+    bcc_email_data=[
+        "jsa65x@gmail.com",
+    ],
+    verbose=1,
+)
+
+# Shared Remote builders
+SharedRemoteTransportBuilder(
+    share_secret="YOUR-SHARED-REMOTE-SECRET",
+    enabled=0,
+    timeout=30.0,
+)
+
+# AWS API builders
+AwsApiBuilder(
+    enabled=0,
+    aws_data=AwsApiData(
+        access_key_id="YOUR-AWS-ACCESS-KEY",
+        secret_access_key="YOUR-AWS-SECRET-KEY",
+        region_name=AWS_REGION.US_EAST_1,
+    ),
+    use_private_sender_identity=1,
+    sender_identity=TransportFrommails(
+        single="sender@example.com",
+    ),
+    verbose=0,
+)
+
+# Brevo API builders
+BrevoApiBuilder(
+    enabled=0,
+    brevo_data=BrevoData(
+        api_key="YOUR-BREVO-API-KEY",
+    ),
+    use_private_sender_identity=1,
+    sender_identity=TransportFrommails(
+        single="sender@example.com",
+    ),
+    verbose=0,
+)
+
+# Mailgun API builders
+MailGunApiBuilder(
+    enabled=0,
+    mail_gun_data=MailGunData(
+        api_key="YOUR-MAILGUN-API-KEY",
+        allowed_domains=["example.com"],
+        pick_type_domain=3,
+    ),
+    use_private_sender_identity=1,
+    sender_identity=TransportFrommails(
+        single="sender@example.com",
+    ),
+    verbose=0,
+)
+
+# Mailjet API builders
+MailJetApiBuilder(
+    enabled=0,
+    mailjet_data=MailJetData(
+        api_key="YOUR-MAILJET-API-KEY",
+        api_secret="YOUR-MAILJET-API-SECRET",
+    ),
+    use_private_sender_identity=1,
+    sender_identity=TransportFrommails(
+        single="sender@example.com",
+    ),
+    verbose=0,
+)
+
+# SendGrid API builders
+SendGridApiBuilder(
+    enabled=0,
+    sendgrid_data=SendGridData(
+        api_key="YOUR-SENDGRID-API-KEY",
+        host="https://api.sendgrid.com",
+    ),
+    use_private_sender_identity=1,
+    sender_identity=TransportFrommails(
+        single="sender@example.com",
+    ),
+    verbose=0,
+)

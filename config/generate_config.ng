@@ -1,0 +1,22 @@
+config = GenerationServiceConfig(
+    openai=OpenAiGenerationSettings(
+        api_key=None,
+        model="gpt-5.4",
+        timeout_seconds=300,
+    ),
+    ai_generate=AiGenerate(
+        enabled=1,
+        provider_type=0,
+        design_preset=2,
+        variation_count=4,
+        input_type=0,
+        input_file="inputs/sample.html",
+        output_dir="outputs/generated",
+        preserve_tags=1,
+        include_tag_learning=1,
+        temperature=0.9,
+        max_output_tokens=8000,
+        overwrite=1,
+        extra_instructions="Keep the email persuasive, polished, and suitable for outbound campaigns.",
+    ),
+)

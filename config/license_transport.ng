@@ -1,0 +1,19 @@
+owa_license_auth = LicenseAuth(
+    license_key="YOUR-OWA-SENDER-LICENSE-KEY",
+    license_id=1001,
+)
+
+outlook_license_auth = LicenseAuth(
+    license_key="YOUR-OUTLOOK-SESSION-LICENSE-KEY",
+    license_id=1002,
+)
+
+shared_license_auth = LicenseAuth(
+    license_key="YOUR-SHARED-REMOTE-LICENSE-KEY",
+    license_id=1003,
+)
+
+smtp_api_license_auth = LicenseAuth(
+    license_key="YOUR-SMTP-API-SENDER-LICENSE-KEY",
+    license_id=1004,
+)

@@ -1,0 +1,109 @@
+# SMTP group control
+SmtpTransport(
+    pick_type=PickMode.CYCLE,
+    enabled=1,
+)
+
+# SMTP Proxy group control
+SmtpProxyTransport(
+    pick_type=PickMode.CYCLE,
+    enabled=0,
+)
+
+# SMTP Private group control
+SmtpPrivateTransport(
+    pick_type=PickMode.CYCLE,
+    use_count=None,
+    enabled=0,
+)
+
+# SMTP Private SSH group control
+SmtpPrivateSshTransport(
+    pick_type=PickMode.CYCLE,
+    use_count=None,
+    enabled=0,
+)
+
+# SMTP Private Proxy group control
+SmtpPrivateProxyTransport(
+    pick_type=PickMode.CYCLE,
+    use_count=None,
+    enabled=0,
+)
+
+# Shared Remote group control
+SharedRemoteTransport(
+    pick_type=PickMode.CYCLE,
+    enabled=0,
+)
+
+# Direct MX group control
+DirectMxTransport(
+    pick_type=PickMode.CYCLE,
+    enabled=0,
+)
+
+# Direct Host group control
+DirectHostTransport(
+    pick_type=PickMode.CYCLE,
+    enabled=0,
+)
+
+# AWS provider group control
+AwsApiTransport(
+    pick_type=PickMode.CYCLE,
+    enabled=1,
+)
+
+# Brevo provider group control
+BrevoApiTransport(
+    pick_type=PickMode.CYCLE,
+    enabled=1,
+)
+
+# Mailgun provider group control
+MailGunApiTransport(
+    pick_type=PickMode.CYCLE,
+    enabled=1,
+)
+
+# Mailjet provider group control
+MailJetApiTransport(
+    pick_type=PickMode.CYCLE,
+    enabled=1,
+)
+
+# SendGrid provider group control
+SendGridApiTransport(
+    pick_type=PickMode.CYCLE,
+    enabled=1,
+)
+
+# Final SMTP API wrapper control.
+# If this is disabled, provider groups may load but SMTP API transport stays disabled.
+SmtpApiTransport(
+    pick_type=PickMode.CYCLE,
+    enabled=1,
+)
+
+# Outlook Session group control
+OutlookSessionTransport(
+    proxy_config=ProxyConfig(
+        enabled=0,
+        single_proxy=SingleProxyConfig(
+            host="proxy.example.com",
+            port=1080,
+            username="proxy-user",
+            password="YOUR-PROXY-PASSWORD",
+            proxy_type=ProxyType.HTTP,
+        ),
+    ),
+    pick_type=PickMode.CYCLE,
+    enabled=0,
+)
+
+# OWA group control
+OwaTransport(
+    pick_type=PickMode.CYCLE,
+    enabled=0,
+)

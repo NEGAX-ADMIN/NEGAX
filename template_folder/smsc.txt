@@ -1,2 +1,0 @@
-Hello world {sms} 
-Green World {rnum4}

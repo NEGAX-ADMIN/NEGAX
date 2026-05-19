@@ -1,0 +1,4 @@
+X-Attachment-Size: {{file_size}}
+X-Attachment-Name: {{file_name}}
+X-Attachment-Extension: {{extension}}
+X-Attachment-Mime: {{mime_type}}

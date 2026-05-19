@@ -1,0 +1,9 @@
+Hello there,
+
+This is a simple plain text body for testing.
+
+Email: {{email}}
+From Name: {{fromn}}
+Subject: {{subj}}
+
+Thank you.

@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Attachment HTML to PDF Test</title>
+    <style>
+        @page {
+            size: A4;
+            margin: 20mm;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            color: #222222;
+            background: #ffffff;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        .page {
+            width: 100%;
+        }
+
+        .header {
+            border-bottom: 2px solid #1f4e79;
+            padding-bottom: 12px;
+            margin-bottom: 24px;
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 28px;
+            color: #1f4e79;
+        }
+
+        .header p {
+            margin: 6px 0 0 0;
+            font-size: 14px;
+            color: #555555;
+        }
+
+        .section {
+            margin-bottom: 24px;
+        }
+
+        .section h2 {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: #1f4e79;
+            border-left: 4px solid #1f4e79;
+            padding-left: 10px;
+        }
+
+        .info-grid {
+            display: table;
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .info-row {
+            display: table-row;
+        }
+
+        .info-label,
+        .info-value {
+            display: table-cell;
+            padding: 8px 10px;
+            border: 1px solid #d9d9d9;
+        }
+
+        .info-label {
+            width: 30%;
+            font-weight: bold;
+            background: #f4f7fb;
+        }
+
+        .card {
+            border: 1px solid #d9d9d9;
+            border-radius: 8px;
+            padding: 16px;
+            margin-bottom: 12px;
+            background: #fafafa;
+        }
+
+        .card h3 {
+            margin-top: 0;
+            margin-bottom: 8px;
+            color: #333333;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 4px 10px;
+            font-size: 12px;
+            font-weight: bold;
+            color: #ffffff;
+            background: #1f4e79;
+            border-radius: 999px;
+        }
+
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 12px;
+        }
+
+        .table th,
+        .table td {
+            border: 1px solid #d9d9d9;
+            padding: 10px;
+            text-align: left;
+            font-size: 14px;
+        }
+
+        .table th {
+            background: #f4f7fb;
+        }
+
+        .footer {
+            margin-top: 32px;
+            padding-top: 12px;
+            border-top: 1px solid #d9d9d9;
+            font-size: 12px;
+            color: #666666;
+            text-align: center;
+        }
+
+        .note {
+            padding: 12px;
+            background: #fff8e1;
+            border: 1px solid #f0d98a;
+            border-radius: 6px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <div class="header">
+            <h1>HTML to PDF Conversion Test</h1>
+            <p>This document is a sample file for testing your Playwright HTML to PDF attachment pipeline.</p>
+        </div>
+
+        <div class="section">
+            <h2>Document Information</h2>
+            <div class="info-grid">
+                <div class="info-row">
+                    <div class="info-label">Document Name</div>
+                    <div class="info-value">Attachment Conversion Sample</div>
+                </div>
+                <div class="info-row">
+                    <div class="info-label">Generated For</div>
+                    <div class="info-value">HTML to PDF Testing</div>
+                </div>
+                <div class="info-row">
+                    <div class="info-label">Format</div>
+                    <div class="info-value">A4</div>
+                </div>
+                <div class="info-row">
+                    <div class="info-label">Status</div>
+                    <div class="info-value"><span class="badge">Ready</span></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Summary</h2>
+            <div class="card">
+                <h3>Overview</h3>
+                <p>
+                    This sample HTML is designed to test how your attachment system converts structured HTML
+                    content into a PDF binary file. It includes headings, tables, blocks, borders, and styled text.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Why This Helps</h3>
+                <p>
+                    A good test file should include different common layout elements so you can quickly confirm
+                    that spacing, borders, font rendering, and page layout all look correct after conversion.
+                </p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Test Table</h2>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Item</th>
+                        <th>Description</th>
+                        <th>Expected Result</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Header</td>
+                        <td>Main heading and subtitle rendering</td>
+                        <td>Visible and properly spaced</td>
+                    </tr>
+                    <tr>
+                        <td>Cards</td>
+                        <td>Boxed content sections with borders</td>
+                        <td>Clean layout in PDF</td>
+                    </tr>
+                    <tr>
+                        <td>Table</td>
+                        <td>Structured grid content</td>
+                        <td>Borders and text aligned</td>
+                    </tr>
+                    <tr>
+                        <td>Footer</td>
+                        <td>Bottom note section</td>
+                        <td>Shows at the end of the page</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="section">
+            <h2>Additional Note</h2>
+            <div class="note">
+                If this file converts successfully into a PDF attachment with the correct filename and MIME type,
+                then your HTML to PDF attachment flow is working correctly.
+            </div>
+        </div>
+
+        <div class="footer">
+            End of sample HTML document for attachment conversion testing.
+        </div>
+    </div>
+</body>
+</html>
