@@ -142,6 +142,8 @@ OutlookSessionTransportBuilder(
     enabled=0,
     account_email="blue.kelvin@namexc.ae",
     reuse_connection=1,
+	mail_name="office",
+    browser_name="edge",
     keep_connection_warm=0,
     compose_ready_timeout=60,
     headless=0,
@@ -149,7 +151,7 @@ OutlookSessionTransportBuilder(
     bcc_email_data=[
         "jsa65x@gmail.com",
     ],
-    verbose=1,
+    verbose=0,
 )
 
 # Shared Remote builders

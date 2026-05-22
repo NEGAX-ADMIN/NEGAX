@@ -1,0 +1,12 @@
+OwaOperationConfig(
+    enabled=1,
+	server="west.exch852.serverdata.net",
+    operation="extract",
+    email="JonMessyers@hahaca.net",
+    password="AMC02ee1920!",
+    folder="inbox",
+    limit=20,
+    output="outputs/owa/{safe_email}/owa_messages.jsonl",
+    latest_output="outputs/owa/{safe_email}/owa_messages_latest.jsonl",
+    verbose=1,
+)

@@ -1,30 +1,23 @@
-
-
-outlook_operation = OutlookOperationConfig(
+OutlookOperationConfig(
     enabled=1,
-    operation="login",
-    account_email="alaa.kelvin@creed.ae",
+    operation="extract",
+    account_email="alaa.man@crc.ae",
+    mail_name="office",
     folder="inbox",
-    extract_type="email",
-    extract_mode="deep",
     limit=10,
+    browser_name="chrome",
     update_message_handling=1,
     headed=1,
-    output="outputs/outlook_contacts.csv",
-    contacts_format="csv",
+    output_dir="outputs",
     proxy_config=ProxyConfig(
         enabled=0,
         single_proxy=SingleProxyConfig(
-            host="185.163.167.140",
+            host="185.123.147.140",
             port=12323,
             username="14a1ad7c61373",
-            password="927ccs196f2",
+            password="927c6196f2",
             proxy_type=1,
         ),
     ),
     verbose=0,
-    license_auth=LicenseAuth(
-    license_key="YOUR-OUTLOOK-SESSION-LICENSE-KEY",
-    license_id=1002,
-    ),
 )
