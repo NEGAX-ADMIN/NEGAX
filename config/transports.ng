@@ -6,7 +6,7 @@ SmtpTransportBuilder(
     port=587,
     username="gilberto17@ethereal.email",
     password="gZsuUWX1QnD7WtcFnv",
-    security=2,
+    security=3,
     use_private_sender_identity=1,
     sender_identity=TransportFrommails(
         single="gilberto17@ethereal.email",
