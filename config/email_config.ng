@@ -7,17 +7,16 @@
 # =========================
 
 RecipientData(
-    start_read_length=0,
-    end_read_length=3,
+    start_read_length=None,
+    end_read_length=10,
     file_path="inputs/emails.txt",
     pick_mode=1,
 )
 
 SubjectData(
-
     "Gree Lokk",
     file_path="inputs/subjects.txt",
-    pick_mode=PickMode.CYCLE,
+    pick_mode=3,
     file_path_disabled=1
 )
 
@@ -27,12 +26,12 @@ FromnameData(
     ),
     file_path_disabled=1,
     file_path="inputs/fromnames.txt",
-    pick_mode=PickMode.CYCLE,
+    pick_mode=3,
 )
 
 FrommailData(
     file_path="inputs/frommail.txt",
-    pick_mode=PickMode.CYCLE,
+    pick_mode=3,
 )
 
 LinkData(
@@ -48,23 +47,15 @@ LinkData(
 
 AttachmentData(
     AttachBuilder(
-        enabled=0,
-        allow_placeholder_replace=1,
-        allow_text_replace=1,
+        enabled=1,
         file_path="inputs/sample.html",
-        allow_rename=1,
-        allow_base64=1,
         renamed_name="{{upper(*sha1(*sha2(*rnum34)))}}@{{rdom}}.html",
         html_conversion=HtmlConversion(
             html_to_pdf=HTML2PDF(
                 convert_html_to_pdf=0,
-                format=PdfFormat.A4,
-                wait_until=PdfWaitUntil.LOAD,
                 encryption=PDFEncryption(
                     enabled=1,
                     user_password="{{email}}",
-                    allow_placeholder_replace=1,
-                    algorithm=PdfAlgorithm.AES_256,
                 ),
             ),
             html_to_docx=HTML2DOCX(
@@ -74,9 +65,8 @@ AttachmentData(
     ),
     AttachBuilder(
         enabled=0,
-        file_path="inputs/sample.html",
-        allow_rename=1,
-        renamed_name="converted-docx",
+        file_path="inputs/acac.html",
+        renamed_name="converted-docx{{emaill}}",
         html_conversion=HtmlConversion(
             html_to_docx=HTML2DOCX(
                 convert_html_to_docx=1,
@@ -94,7 +84,6 @@ AttachmentData(
         use_password=1,
         password="{{rstr8}}",
         zip_name="docs-{{date1}}.zip",
-        allow_placeholder_replace=1,
     ),
 )
 
@@ -112,39 +101,18 @@ InlineAttachmentData(
             use_logo=0,
             logo_path="inputs/facebook.jpg",
         ),
-        allow_rename=1,
         renamed_name="simple_html_pdf{{email}}.jpg",
         cid_name="blueband",
         placeholder_name="{{blueband}}",
-        content_source_mode=InlineAttachmentSourceMode.CID,
-        cid_wrap_html=InlineHtmlWrapper(
-            enabled=1,
-            style=HtmlImgWrapper.RESPONSIVE,
-            alt="QR code",
-            link_wrapper=HtmlLinkWrapper(
-                enabled=1,
-                style=HtmlLinkWrapperStyle.BUTTON,
-                target=HtmlLinkTarget.BLANK,
-                rel=HtmlLinkRel.NOOPENER_NOREFERRER,
-                text="Open link",
-            ),
-        ),
-        cache_built_model=INLINE_ATTACHMENT_CACHE.READ,
+
     ),
     InlineAttachmentBuilder(
         enabled=0,
         file_path="inputs/sample1.png",
-        allow_rename=1,
         renamed_name="simple{{email}}.png",
         cid_name="sample1",
         placeholder_name="{{sample1}}",
         content_source_mode=InlineAttachmentSourceMode.BOTH,
-        base64_wrap_html=InlineHtmlWrapper(
-            enabled=1,
-            style=HtmlImgWrapper.CARD,
-            alt="Sample image",
-        ),
-        cache_built_model=INLINE_ATTACHMENT_CACHE.DUPLICATE,
     ),
     InlineAttachmentBuilder(
         enabled=0,
@@ -154,17 +122,9 @@ InlineAttachmentData(
             image_format=HtmlImageFormat.PNG,
             wait_until=HtmlImageWaitUntil.LOAD,
         ),
-        allow_rename=1,
         renamed_name="simple_html2img.jpg",
         cid_name="blueband_html",
         placeholder_name="{{blueband_html}}",
-        content_source_mode=InlineAttachmentSourceMode.BOTH,
-        cid_wrap_html=InlineHtmlWrapper(
-            enabled=1,
-            style=HtmlImgWrapper.THUMBNAIL,
-            alt="Generated HTML image",
-        ),
-        cache_built_model=INLINE_ATTACHMENT_CACHE.DUPLICATE,
     ),
 )
 
@@ -175,33 +135,21 @@ InlineAttachmentData(
 BodyData(
     BodyBuilder(
         enabled=1,
-        html_path="inputs/sample.html",
-        auto_handle_charset=1,
-        auto_handle_encoding=0,
-        body_charset=BodyCharset.ASCII,
-        body_encoding=BodyEncoding.BASE64,
-        convert_to_base64=0,
-        output_charset=CharsetMode.UTF8,
+        html_path="inputs/html_letters",
+        body_charset=2,
+        body_encoding=1,
+        output_charset=1,
         text_mode=TEXT_MODE.HTML,
-        use_html=1,
-        allow_placeholder_replace=1,
-        cache_built_model=BODY_CACHE_METHOD.DUPLICATE,
     ),
     BodyBuilder(
-        enabled=0,
-        text_path="inputs/letter1.txt",
-        auto_handle_encoding=0,
-        auto_handle_charset=1,
-        body_encoding=BodyEncoding.BASE64,
+        enabled=1,
+        text_path="inputs/text_letters",
+        body_encoding=3,
         convert_to_base64=1,
-        output_charset=CharsetMode.WINDOWS_1252,
+        output_charset=4,
         text_mode=TEXT_MODE.PLAIN,
-        allow_placeholder_replace=0,
-        use_html=0,
-        read_lines=0,
-        cache_built_model=BODY_CACHE_METHOD.DUPLICATE,
     ),
-    pick_mode=PickMode.CYCLE,
+    pick_mode=3,
 )
 
 # =========================
@@ -221,35 +169,23 @@ LogoResolverConfig(
 
 SendLoopConfig(
     enabled=1,
-    benchmark_enabled=1,
-    benchmark_show_summary=1,
-    batch_size=2,
-    delay_between_emails=5,
+    batch_size=5,
+    delay_between_emails=0,
     delay_between_emails_unit=1,
-    delay_between_batches=10,
+    delay_between_batches=1,
     delay_between_batches_unit=1,
+    send_timeout_seconds=120,
+    watchdog_enabled=0,
+    watchdog_interval_seconds=5,
+    watchdog_stall_seconds=180,
+    watchdog_memory_logging=0,
     save_results=SendResultSaveConfig(
         enabled=0,
         save_sent=1,
         save_failed=1,
     ),
-    debug_delays=0,
-    progress=SendProgressConfig(
-        enabled=1,
-        use_table=0,
-        use_colors=1,
-        show_time=1,
-        show_status=1,
-        show_counter=1,
-        show_recipient=1,
-        show_subject=1,
-        show_transport=1,
-        show_transport_type=1,
-        show_error=1,
-        left_padding=3,
-    ),
 )
 
 
 enabled_worker_threads = 0
-worker_threads = 4
+worker_threads = 5

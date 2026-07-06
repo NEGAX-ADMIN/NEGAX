@@ -1,6 +1,6 @@
 
 # =========================
-# MIME DATA 
+# MIME DATA
 # =========================
 
 mime_data = MimeDataConfig(
@@ -8,24 +8,23 @@ mime_data = MimeDataConfig(
         mime_type=MIME_TYPE.MULTIPART_ALT,
         dkim_sign_email=DkimConfig(
             enabled=1,
-            use_fixed_key=False,
             generate_per_email=True,
         ),
         raw_mime=RawMimeData(
             enabled=False,
-            mime_file="inputs/sample.eml",
+            mime_file="grayd/inputs/sample.eml",
             remove_attachments=True,
         ),
         save_mime=SaveMimeData(
             enabled=0,
-            save_eml=True,
-            save_xml=True,
-            output_dir="outputs/mime",
+            save_eml=1,
+            save_xml=1,
+            output_dir="grayd/outputs/mime",
             file_name="{{email}}_{{rstr8}}.eml",
         ),
         body_encoding=BodyEncoding.BASE64,
         boundary=MimeBoundaryConfig(
-            enabled=True,
+            enabled=1,
             value="----TEST-BOUNDARY-{{rstr6}}----",
         ),
         x_priority=MimeValueConfig(
@@ -33,18 +32,36 @@ mime_data = MimeDataConfig(
             value=MIME_PRIORITY.HIGH_NUMERIC,
         ),
         from_header=MimeValueConfig(
-            enabled=True,
+            enabled=0,
             value=MIME_FROM.GENERAL_FROMMAIL,
         ),
         to_header=MimeValueConfig(
-            enabled=True,
+            enabled=0,
             value=MIME_TO.EMAIL_ONLY,
         ),
         subject_header=MimeValueConfig(
-            enabled=True,
+            enabled=0,
             value=MIME_SUBJECT.DEFAULT_SUBJECT,
         ),
-        randomize_headers=True,
+        reply_to=MimeValueConfig(
+            enabled=False,
+            value=MIME_REPLY_TO.NONE,
+        ),
+
+        cc_header=MimeValueConfig(
+            enabled=False,
+            value=MIME_CC.NONE,
+        ),
+        bcc_header=MimeValueConfig(
+                enabled=False,
+                value=MIME_BCC.NONE,
+        ),
+        headers=MimeHeaderConfig(
+            templates=[
+                1,
+            ],
+            pick_mode=3,
+        ),
+        randomize_headers=1,
     ),
-    cache_built_models=MIME_CACHE_METHOD.DUPLICATE,
 )

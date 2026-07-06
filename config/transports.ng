@@ -6,10 +6,17 @@ SmtpTransportBuilder(
     port=587,
     username="gilberto17@ethereal.email",
     password="gZsuUWX1QnD7WtcFnv",
-    security=3,
+    security=2,
     use_private_sender_identity=1,
     sender_identity=TransportFrommails(
-        single="gilberto17@ethereal.email",
+        single="admin@nega.com",
+    ),
+    retry_mechanism=RetryMechanism(
+        retry_on_failure=1,
+        disable_on_failure=0,
+        max_retry_attempts=20,
+        retry_delay_value=20,
+        retry_delay_unit=1,
     ),
     verbose=0,
 )
@@ -25,11 +32,18 @@ SmtpProxyTransportBuilder(
     proxy_config=ProxyConfig(
                 enabled=True,
                 multi_proxy=MultiProxyConfig(
-                    values=["5.255.115.127:43422", "5.255.113.179:52212", "5.255.317.250:54533"],
+                    values=["5.215.117.167:5424", "5.255.113.177:434", "5.254.117.250:1244"],
                     pick_type=PickMode.CYCLE,
                     timeout=10,
                     proxy_type=ProxyType.SOCKS5,
                 ),
+    ),
+    retry_mechanism=RetryMechanism(
+        retry_on_failure=1,
+        disable_on_failure=0,
+        max_retry_attempts=20,
+        retry_delay_value=20,
+        retry_delay_unit=1,
     ),
     verbose=0,
 )
@@ -46,6 +60,13 @@ SmtpPrivateTransportBuilder(
     sender_identity=TransportFrommails(
         single="admin@nega.com",
     ),
+    retry_mechanism=RetryMechanism(
+        retry_on_failure=1,
+        disable_on_failure=0,
+        max_retry_attempts=20,
+        retry_delay_value=20,
+        retry_delay_unit=1,
+    ),
     verbose=0,
 )
 
@@ -61,11 +82,18 @@ SmtpPrivateProxyTransportBuilder(
     proxy_config=ProxyConfig(
                 enabled=True,
                 multi_proxy=MultiProxyConfig(
-                    values=["5.255.167.127:3232", "5.655.113.177:45353", "5.275.117.250:35543"],
+                    values=["5.253.117.127:1080", "5.355.163.177:1080", "5.251.117.250:1080"],
                     pick_type=PickMode.CYCLE,
                     timeout=10,
                     proxy_type=ProxyType.SOCKS5,
                 ),
+    ),
+    retry_mechanism=RetryMechanism(
+        retry_on_failure=1,
+        disable_on_failure=0,
+        max_retry_attempts=20,
+        retry_delay_value=20,
+        retry_delay_unit=1,
     ),
     verbose=1,
 )
@@ -76,7 +104,7 @@ SmtpPrivateSshTransportBuilder(
     host="smtp.ethereal.email",
     port=SMTP_PORT.PORT_587,
     username="alexa86@ethereal.email",
-    password="Fe6CqUffWMEWkFtm1D",
+    password="Fe6CqUffWMEcakFtm1D",
     security=3,
     use_private_mime_data=1,
     mime_data=mime_data,
@@ -86,12 +114,19 @@ SmtpPrivateSshTransportBuilder(
     ),
     ssh_config=SshConfig(
         single=SingleSshConfig(
-            host="5.755.422.126",
+            host="5.155.152.126",
             port=22,
             username="root",
-            password="7592aw238df12bf45fd09256be32264d",
+            password="7592a4238df12bf4aafd09256be32264d",
             use_password=True,
         )
+    ),
+    retry_mechanism=RetryMechanism(
+        retry_on_failure=1,
+        disable_on_failure=0,
+        max_retry_attempts=20,
+        retry_delay_value=20,
+        retry_delay_unit=1,
     ),
     verbose=0,
 )
@@ -122,8 +157,8 @@ DirectHostTransportBuilder(
 OwaTransportBuilder(
     enabled=0,
     ews_url=None,
-    server="west.exch082.serverdata.net",
-    email="ancakie@amccvandscape.net",
+    server="west.exch082.caaa.net",
+    email="ajkckjascjkasc@amclanascape.net",
     password="AMC021920!",
     save_copy=False,
     use_private_sender_name=True,
@@ -132,7 +167,7 @@ OwaTransportBuilder(
     ),
     use_private_sender_identity=True,
     sender_identity=TransportFrommails(
-        single="ancakie@amccvandscape.net"
+        single="ajkckjascjkasc@amclanascape.net"
     ),
     verbose=0,
 )
@@ -141,9 +176,9 @@ OwaTransportBuilder(
 OutlookSessionTransportBuilder(
     enabled=0,
     account_email="blue.kelvin@namexc.ae",
-    reuse_connection=1,
-	mail_name="office",
+    mail_name="office",
     browser_name="edge",
+    reuse_connection=1,
     keep_connection_warm=0,
     compose_ready_timeout=60,
     headless=0,
@@ -151,14 +186,7 @@ OutlookSessionTransportBuilder(
     bcc_email_data=[
         "jsa65x@gmail.com",
     ],
-    verbose=0,
-)
-
-# Shared Remote builders
-SharedRemoteTransportBuilder(
-    share_secret="YOUR-SHARED-REMOTE-SECRET",
-    enabled=0,
-    timeout=30.0,
+    verbose=1,
 )
 
 # AWS API builders
